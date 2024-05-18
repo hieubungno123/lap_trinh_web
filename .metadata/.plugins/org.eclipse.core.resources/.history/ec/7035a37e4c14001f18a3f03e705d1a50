@@ -1,0 +1,81 @@
+package com.laptrinhjava.dao.impl;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.laptrinhjava.dao.INewDAO;
+import com.laptrinhjava.mapper.NewMapper;
+import com.laptrinhjava.model.NewsModel;
+
+public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO  {
+	
+
+	
+	@Override
+	public List<NewsModel> findByCategoryId(Long categoryId) {
+		String sql ="SELECT * FROM new_servlet.news WHERE categoryid = ?";
+		return query(sql, new NewMapper(), categoryId);
+	}
+	
+//			executeUpdate dùng cho delete, put, post
+	
+	@Override
+	public Long save(NewsModel newsModel) {
+		ResultSet resultSet = null;
+		Long id = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		try {
+			String sql = "INSERT INTO new_servlet.news (title, content, categoryid) VALUES(?,?,?)";
+			connection = getConnection();
+			connection.setAutoCommit(false);
+			//setAutoCommit đẻ tự động là false, thì khi sai commit sẽ tự động khôi phục như cũ không cập nhận nữa
+			// Bắt buộc tất cả phải success
+			statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			statement.setString(1, newsModel.getTitle());
+			statement.setString(2, newsModel.getContent());
+			statement.setLong(3, newsModel.getCategoryId());
+			statement.executeUpdate();
+			resultSet = statement.getGeneratedKeys();
+			if(resultSet.next()) {
+				id = resultSet.getLong(1);
+			}
+			connection.commit();
+			return id;
+		} catch (SQLException e) {
+			if (connection != null) {
+				try {
+					connection.rollback();
+				} catch (SQLException e2) {
+					e2.printStackTrace();
+				}
+			}
+			return null;
+		}finally {
+			try {
+				if (connection != null) {
+					connection.close();
+				}if (statement != null) {
+					statement.close();
+				}if (resultSet != null) {
+					resultSet.close();
+				}
+				
+			} catch (SQLException e2) {
+				// TODO: handle exception
+				return null;
+			}
+
+		}
+		
+		
+	}
+	
+	
+}

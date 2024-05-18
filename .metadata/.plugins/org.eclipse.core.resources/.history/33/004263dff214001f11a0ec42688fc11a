@@ -1,0 +1,9 @@
+package com.laptrinhjava.controller.admin;
+
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+
+@WebServlet(urlPatterns = {"/admin-new-list"})
+public class NewController extends HttpServlet {
+	
+}

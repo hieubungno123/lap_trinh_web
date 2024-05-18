@@ -1,0 +1,9 @@
+INDEX VERSION 1.4+C:\Users\hieub\Documents\Eclipse\lap_trinh_web\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4019540909.index
+3494056890.index
+3662914487.index
+3587223346.index
+3208308349.index
+1481381312.index
+36440793.index
+1904733697.index

@@ -1,0 +1,61 @@
+package com.laptrinhjava.dao.impl;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.laptrinhjava.dao.GenericDAO;
+import com.laptrinhjava.mapper.RowMapper;
+
+public class AbstractDAO<T> implements GenericDAO<T> {
+	public Connection getConnection() {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String url="jdbc:mysql://localhost:3306/new_servlet";
+			String user="root";
+			String password ="Nguloz.123";
+			return DriverManager.getConnection(url,user,password);
+		} catch (ClassNotFoundException | SQLException e) {
+			return null;
+		} 
+	}
+
+	@Override
+	public <T> List<T> query(String sql, RowMapper<T> rowMapper, Object... parameters) {
+		List<T> result = new ArrayList<T>();
+		Connection connection = getConnection();
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection= getConnection();
+			statement = connection.prepareStatement(sql);
+			//set para
+			resultSet = statement.executeQuery();
+			while (resultSet.next()) {
+				result.add(rowMapper.mapRow(resultSet));
+				
+			}
+		} catch (Exception e) {
+			return null;
+		}finally {
+			try {
+				connection.close();
+				statement.close();
+				resultSet.close();
+			} catch (SQLException e2) {
+				// TODO: handle exception
+				return null;
+			}
+
+		}
+		
+		
+	}
+	
+	
+}
+
