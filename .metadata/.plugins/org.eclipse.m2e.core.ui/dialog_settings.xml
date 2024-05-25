@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\hieub\Documents\Eclipse\lap_trinh_web\new-jdbc-2-maven\pom.xml"/>
 			<item value="C:\Users\hieub\Documents\Eclipse\lap_trinh_web\new-jdbc-1-maven"/>
 			<item value="C:\Users\hieub\Documents\Eclipse\lap_trinh_web"/>
 			<item value="C:\Users\hieub\Documents\Eclipse\lap_trinh_web\new-jdbc"/>
@@ -46,6 +47,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="QLSV"/>
 			<item value="com.laptrinhjava"/>
 			<item value="com.laptrinh"/>
 			<item value="com.laptrinhjavaweb"/>
@@ -53,6 +55,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="qlsv1"/>
 			<item value="themSP"/>
 			<item value="new-jdbc-2-maven"/>
 			<item value="new-jdbc-3-maven"/>

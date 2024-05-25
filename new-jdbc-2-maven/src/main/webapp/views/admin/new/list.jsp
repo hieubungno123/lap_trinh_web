@@ -1,7 +1,8 @@
 <%@include file="/common/taglib.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<c:url var="APIurl" value="/api-admin-new"/>
+<c:url var ="NewURL" value="/admin-new"/> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +24,27 @@
 		        <div class="page-content">
 		            <div class="row" >
 		                <div class="col-xs-12">
+		                	<div class="widget-box table-filter">
+									<div class="table-btn-controls">
+										<div class="pull-right tableTools-container">
+											<div class="dt-buttons btn-overlap btn-group">
+												<a flag="info"
+												   class="dt-button buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="tooltip"
+												   title='Thêm bài viết'  href='<c:url value="/admin-new?type=edit"/> '>
+															<span>
+																<i class="fa fa-plus-circle bigger-110 purple"></i>
+															</span>
+												</a>
+												<button id="btnDelete" type="button"
+														class="dt-button buttons-html5 btn btn-white btn-primary btn-bold" data-toggle="tooltip" title='Xóa bài viết'>
+																<span>
+																	<i class="fa fa-trash-o bigger-110 pink"></i>
+																</span>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
 		                	<div class="row" >
 		               			<div class="col-xs-12">
 									<div class="table-responsive">
@@ -38,6 +60,15 @@
 										      	<tr>
 										      		<td>${item.title}</td>
 										      		<td>${item.content}</td>
+										      		<td>
+														<c:url var="editURL" value="/admin-new">
+														<c:param name="type" value="edit"/>
+														<c:param name="id" value="${item.id}"/>
+														</c:url>
+															<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
+																   title="Cập nhật bài viết" href='${editURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+															</a>
+													</td>
 										      	</tr>
 										      </c:forEach>
 										      

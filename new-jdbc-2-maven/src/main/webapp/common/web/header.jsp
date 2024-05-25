@@ -15,7 +15,7 @@
             </li>
             <c:if test="${not empty USERMODEL}">
               <li class="nav-item">
-                <a class="nav-link" href='#'>Wellcome, ${USERMODEL.fullName}</a>
+                <a class="nav-link" href='#'>Wellcome, ${USERMODEL.userName}</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href='<c:url value="/thoat?action=logout"/>'>Thoát</a>

@@ -14,6 +14,8 @@ public class NewService implements INewService{
 	@Inject
 	private INewDAO newDAO;
 	
+
+	
 	@Override
 	public List<NewsModel> findByCategoryId(Long categoryId) {
 		// TODO Auto-generated method stub
@@ -50,6 +52,11 @@ public class NewService implements INewService{
 	@Override
 	public List<NewsModel> findAll() {
 		return newDAO.findAll();
+	}
+
+	@Override
+	public NewsModel findOne(Long id) {
+		return newDAO.findOne(id);
 	}
 
 

@@ -3,6 +3,7 @@ package com.laptrinhjava.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.laptrinhjava.model.CategoryModel;
 import com.laptrinhjava.model.NewsModel;
 
 public class NewMapper implements RowMapper<NewsModel>{

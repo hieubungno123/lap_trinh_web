@@ -16,9 +16,16 @@ public class AbstractModel<T> {
 	private Integer maxPageItem;
 	private Integer totalPage;
 	private Integer totalItem;
+	private String type;
 	
 
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public Integer getPage() {
 		return page;
 	}

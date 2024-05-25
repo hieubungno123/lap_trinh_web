@@ -20,7 +20,5 @@ public class RoleModel extends AbstractModel<RoleModel>{
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
+
 }

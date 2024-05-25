@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.laptrinhjava.constant.SystemConstant;
 import com.laptrinhjava.model.NewsModel;
+import com.laptrinhjava.service.ICategoryService;
 import com.laptrinhjava.service.INewService;
 import com.laptrinhjava.utils.FormUtil;
 
@@ -29,13 +30,33 @@ public class NewController extends HttpServlet {
 	@Inject
 	private INewService newService;
 	
+	@Inject
+	private ICategoryService categoryService;
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		NewsModel model = new NewsModel();
+		NewsModel model = FormUtil.toModel(NewsModel.class, req);
+//		req.setAttribute(SystemConstant.MODEL, model);
+//		model.setListResult(newService.findAll());
+//		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/list.jsp"); 
+//		rd.forward(req, resp);
 		
-		model.setListResult(newService.findAll());	
+		String view = "";
+		if(model.getType().equals(SystemConstant.LIST)) {
+			model.setListResult(newService.findAll());	
+			
+			view="/views/admin/new/list.jsp";
+			
+		}else if(model.getType().equals(SystemConstant.EDIT)) {
+			if (model.getId() != null) {
+				model = newService.findOne(model.getId());
+			}
+			req.setAttribute("catogories", categoryService.findAll());
+			view = "/views/admin/new/edit.jsp";
+		}
+		
 		req.setAttribute(SystemConstant.MODEL, model);
-		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/new/list.jsp"); 
+		RequestDispatcher rd = req.getRequestDispatcher(view); 
 		rd.forward(req, resp);
 	}
 	

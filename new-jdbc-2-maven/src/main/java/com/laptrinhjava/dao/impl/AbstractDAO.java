@@ -10,12 +10,15 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes.Type;
 import com.laptrinhjava.dao.GenericDAO;
 import com.laptrinhjava.mapper.RowMapper;
 
 public class AbstractDAO<T> implements GenericDAO<T> {
+	
+	
 	public Connection getConnection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");

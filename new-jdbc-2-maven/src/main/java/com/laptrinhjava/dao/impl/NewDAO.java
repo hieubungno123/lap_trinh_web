@@ -29,11 +29,10 @@ public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO  {
 	public Long save(NewsModel newsModel) {
 //		String sql = "INSERT INTO new_servlet.news (title, content, categoryid) VALUES(?,?,?)";
 		StringBuilder sql = new StringBuilder("INSERT INTO new_servlet.news (title, content, ");
-		sql.append(" thumbmall , shortdescriptionn, categoryid, createddate,createdby ) ");
-		sql.append(" VALUES(?,?,?,?,?,?,?)");
+		sql.append(" thumbmall , shortdescriptionn) ");
+		sql.append(" VALUES(?,?,?,?)");
 		return insert(sql.toString(), newsModel.getTitle(), newsModel.getContent(),
-				newsModel.getThumbnall(),newsModel.getShortDescription(), 
-				newsModel.getCategoryId(), newsModel.getCreateDate(), newsModel.getCreateBy());
+				newsModel.getThumbnall(),newsModel.getShortDescription());
 	}
 
 	@Override
@@ -46,14 +45,13 @@ public class NewDAO extends AbstractDAO<NewsModel> implements INewDAO  {
 	public void update(NewsModel updateNew) {
 		StringBuilder sql = new StringBuilder("UPDATE new_servlet.news ");
 		  sql.append(" SET title = ? ,content = ? ,shortdescriptionn = ? ,thumbmall = ?,");
-		  sql.append(" categoryid = ?, createdby = ? , createddate = ? , modifieddate = ?, modifiedby=? ");
+		  sql.append(" ");
 		  sql.append(" WHERE id = ?");
 
-		update(sql.toString(), updateNew.getTitle(), updateNew.getContent(), updateNew.getCategoryId(),
+		update(sql.toString(), updateNew.getTitle(), updateNew.getContent(),
 				updateNew.getShortDescription(), updateNew.getThumbnall(),
-				updateNew.getCreateBy(), updateNew.getCreateDate(), updateNew.getModifiedDate(),
-				updateNew.getModifiedBy() ,updateNew.getId());
-		
+				 updateNew.getId());
+	
 	}
 
 	@Override

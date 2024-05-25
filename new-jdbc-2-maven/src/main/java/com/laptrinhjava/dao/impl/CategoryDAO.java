@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.laptrinhjava.dao.ICategoryDAO;
 import com.laptrinhjava.mapper.CategoryMapper;
+import com.laptrinhjava.mapper.NewMapper;
 import com.laptrinhjava.model.CategoryModel;
+import com.laptrinhjava.model.NewsModel;
 
 public class CategoryDAO extends AbstractDAO<CategoryModel> implements ICategoryDAO{
 	
@@ -23,4 +25,6 @@ public class CategoryDAO extends AbstractDAO<CategoryModel> implements ICategory
 		return query(sql, new CategoryMapper());
 
 	}
+
+
 }
