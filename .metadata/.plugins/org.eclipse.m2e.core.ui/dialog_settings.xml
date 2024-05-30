@@ -47,6 +47,7 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="laptrinhweb"/>
 			<item value="QLSV"/>
 			<item value="com.laptrinhjava"/>
 			<item value="com.laptrinh"/>
@@ -55,6 +56,8 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="xemphim"/>
+			<item value="webXemPhim"/>
 			<item value="qlsv1"/>
 			<item value="themSP"/>
 			<item value="new-jdbc-2-maven"/>
