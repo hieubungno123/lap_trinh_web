@@ -1,4 +1,4 @@
-package xemphim.context;
+package context;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

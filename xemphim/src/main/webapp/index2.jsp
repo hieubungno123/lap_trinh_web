@@ -1,2 +1,2 @@
-<%@include file="/common/taglib.jsp" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:redirect url = "/admin"/>

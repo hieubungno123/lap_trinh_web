@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.laptrinhjava.dao.INewDAO"/>
     <fullyQualifiedTypeName name="com.laptrinhjava.service.impl.NewService"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.ObjectMapper"/>
     <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonSubTypes.Type"/>
@@ -57,7 +56,8 @@
     <fullyQualifiedTypeName name="entity.Student"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="xemphim.model.Movie"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="xemphim.context.DBContext"/>
+    <fullyQualifiedTypeName name="xemphim.dao.MovieDao"/>
+    <fullyQualifiedTypeName name="xemphim.model.Movie"/>
 </qualifiedTypeNameHistroy>

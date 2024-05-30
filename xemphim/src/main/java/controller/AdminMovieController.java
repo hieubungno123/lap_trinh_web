@@ -1,19 +1,22 @@
-package xemphim.controller;
+package controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import xemphim.dao.MovieDao;
-import xemphim.model.Movie;
+import dao.MovieDao;
+import model.Movie;
 
 /**
  * Servlet implementation class AdminMovieController
  */
-@WebServlet(urlPatterns = {"/admin-movie"})
+//@WebServlet(urlPatterns = {"/admin-movie"})
+@WebServlet("/adminMovie")
 
 public class AdminMovieController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -51,8 +54,9 @@ public class AdminMovieController extends HttpServlet {
 			MovieDao dao = new MovieDao();
 			Movie movie = dao.addNewMovie(maphim, tenphim, thoiluong, linkphim, mota, nhasanxuat,theloai);
 			
-//			request.setAttribute("students", sv);
-//	        request.getRequestDispatcher("qlsv.jsp").forward(request, response);
+			request.setAttribute("movies", movie);
+			request.getRequestDispatcher("adminMovie.jsp").forward(request, response); 
+			
 		}else if("modify".equals(action)) {
 			String maphim = request.getParameter("parmaphim");
 			String tenphim=request.getParameter("partenphim");
@@ -65,16 +69,17 @@ public class AdminMovieController extends HttpServlet {
 			MovieDao dao = new MovieDao();
 			Movie movie = dao.updateMovie(maphim, tenphim, thoiluong, linkphim, mota, nhasanxuat,theloai);
 			
-//			request.setAttribute("students", sv);
-//	        request.getRequestDispatcher("qlsv.jsp").forward(request, response);
+			request.setAttribute("movies", movie);
+			request.getRequestDispatcher("adminMovie.jsp").forward(request, response);
+			
 		}else if("delete".equals(action)) {
 			String maphim = request.getParameter("parmaphim");
 			
 			MovieDao dao = new MovieDao();
 			Movie movie = dao.deleteMovie(maphim);
 			
-//			request.setAttribute("students", sv);
-//	        request.getRequestDispatcher("qlsv.jsp").forward(request, response);
+			request.setAttribute("movies", movie);
+			request.getRequestDispatcher("adminMovie.jsp").forward(request, response);
 		}
 		
 	}

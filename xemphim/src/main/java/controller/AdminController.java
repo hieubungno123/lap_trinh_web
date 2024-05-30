@@ -1,6 +1,7 @@
-package xemphim.controller;
+package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,17 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.MovieDao;
+import model.Movie;
+
 /**
- * Servlet implementation class HomeController
+ * Servlet implementation class AdminController
  */
-@WebServlet(urlPatterns = {"/trang-chu"})
-public class HomeController extends HttpServlet {
+@WebServlet(urlPatterns = {"/admin"})
+public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HomeController() {
+    public AdminController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,8 +32,11 @@ public class HomeController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/view/home.jsp"); 
-		rd.forward(request, response);
+		MovieDao dao = new MovieDao();
+		List<Movie> list = dao.getAllStudent();
+
+		request.setAttribute("movies", list);
+		request.getRequestDispatcher("adminHome.jsp").forward(request, response); 
 	}
 
 	/**

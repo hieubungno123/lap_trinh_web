@@ -1,4 +1,4 @@
-package xemphim.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,19 +6,8 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import xemphim.context.DBContext;
-
-/*
- String maPhim,
- String tenPhim,
- int thoiLuong,
- String linkPhim,
- String moTa,
- String nhaSanXuat,
- String theLoai
- */	
-
-import xemphim.model.Movie;
+import context.DBContext;
+import model.Movie;
 
 public class MovieDao {
 	Connection connection = null;
@@ -79,10 +68,12 @@ public class MovieDao {
 			statement.setString(7, theLoai);
 			statement.executeUpdate();
 			
+			movie = findByMaPhim(maPhim);
+
 			movie = new Movie(maPhim, tenPhim,
 					thoiLuong, linkPhim,
-					moTa,
-					nhaSanXuat, theLoai);
+					moTa,nhaSanXuat, 
+					theLoai);
 			
 			connection.close();
 			statement.close();
@@ -103,9 +94,29 @@ public class MovieDao {
 			 String nhaSanXuat,
 			 String theLoai
 			 ) {
-		String sql = "UPDATE app_movie.movies SET maPhim='"+maPhim+"', tenPhim='"+tenPhim+"'";
-		sql=
-		return null;
+		String sql = "UPDATE app_movie.movies SET tenPhim='"+tenPhim+"'";
+		sql=sql+", thoiLuong='"+thoiLuong+"', linkPhim='"+linkPhim+"', descriptionMovie='"+moTa+"'";
+		sql=sql+", nhaSanXuat='"+nhaSanXuat+"', theLoai='"+theLoai+"'";
+		sql=sql+" WHERE maPhim = '"+maPhim+"';";
+		Movie movie = null;
+		try {
+			movie = findByMaPhim(maPhim);
+			connection = new DBContext().getConnection();
+			statement = connection.prepareStatement(sql);
+			statement.executeUpdate();
+			
+			movie = new Movie(maPhim,tenPhim,
+					thoiLuong,linkPhim,
+					moTa,nhaSanXuat,
+					theLoai);
+					
+			connection.close();
+			statement.close();
+			resultSet.close();
+		} catch (Exception e) {
+			return null;
+		}
+		return movie;
 	}
 	
 	public Movie deleteMovie(String maPhim) {

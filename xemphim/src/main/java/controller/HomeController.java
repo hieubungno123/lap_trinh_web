@@ -1,4 +1,4 @@
-package xemphim.controller;
+package controller;
 
 import java.io.IOException;
 
@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class AdminController
+ * Servlet implementation class HomeController
  */
-@WebServlet(urlPatterns = {"/admin"})
-public class AdminController extends HttpServlet {
+@WebServlet(urlPatterns = {"/trang-chu"})
+public class HomeController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminController() {
+    public HomeController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,7 +28,7 @@ public class AdminController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/view/admin/adminHome.jsp"); 
+		RequestDispatcher rd = request.getRequestDispatcher("home.jsp"); 
 		rd.forward(request, response);
 	}
 

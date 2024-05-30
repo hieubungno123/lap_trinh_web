@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@include file="/common/taglib.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="utf-8">
     <title>Quản Lý Thông Tin Sinh Viên</title>
@@ -21,6 +21,9 @@
         .btn-group button {
             margin-right: 5px;
         }
+        td {
+        color: black;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +32,7 @@
 %>
 <div class="container">
     <h4 class="text-center"><%= formtitle %></h4>
-    <form method="post" action='admin-movie'>
+    <form method="post" action='adminMovie'>
         <div class="form-group">
             <label for="parmaphim">Mã Phim</label>
             <input type="text" class="form-control" id="parmaphim" name="parmaphim" value=''>
@@ -40,7 +43,7 @@
         </div>
         <div class="form-group">
             <label for="parthoiluong">Phút</label>
-            <input type="number" class="form-control" id="parthoiluong" name='parthoiluong' value=''>
+            <input type="text" class="form-control" id="parthoiluong" name='parthoiluong' value=''>
         </div>
         <div class="form-group">
             <label for="parlinkphim">Link phim</label>
@@ -87,9 +90,13 @@
         <tbody>
             <%-- <c:forEach var="student" items="${students}"> --%>
             <tr>
-                <td>${students.masv}</td>
-                <td>${students.tensv}</td>
-                <td>${students.emailsv}</td>
+                <td>${movies.maPhim}</td>
+                <td>${movies.tenPhim}</td>
+                <td>${movies.thoiLuong}</td>
+                <td>${movies.linkPhim}</td>
+                <td>${movies.moTa}</td>
+                <td>${movies.nhaSanXuat}</td>
+                <td>${movies.theLoai}</td>
                 <!-- Add other columns as needed -->
             </tr>
             <%-- </c:forEach> --%>

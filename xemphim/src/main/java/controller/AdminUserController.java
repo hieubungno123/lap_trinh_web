@@ -1,4 +1,4 @@
-package xemphim.controller;
+package controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MovieController
+ * Servlet implementation class AdminUserController
  */
-@WebServlet("/MovieController")
-public class MovieController extends HttpServlet {
+@WebServlet(urlPatterns = {"/admin-user"})
+public class AdminUserController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MovieController() {
+    public AdminUserController() {
         super();
         // TODO Auto-generated constructor stub
     }

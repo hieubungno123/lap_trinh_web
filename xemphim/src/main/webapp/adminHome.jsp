@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@include file="/common/taglib.jsp"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Admin Home</title>
+<title> Home</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
  <style>
@@ -101,7 +101,7 @@
 	                                    <div class="card">
 	                                        <div class="card-header border-transparent">
 	                                            <h3 class="card-title">Danh sách phim</h3>
-	                                            <a href="view/admin/adminMovie.jsp">Cập nhật phim</a>
+	                                            <a href="adminMovie.jsp">Cập nhật phim</a>
 	                                        </div>
 	
 	                                        <div class="card-body p-0">
@@ -123,11 +123,11 @@
 	                                                        <tr>
 	                                                            <td>${movie.maPhim}</td>
 	                                                            <td>${movie.tenPhim}</td>
-	                                                            <td>${movie.totalMinutes}</td>
+	                                                            <td>${movie.thoiLuong}</td>
 	                                                            <td>${movie.linkPhim}</td>
-	                                                            <td>${movie.descriptionMovie}</td>
-	                                                            <td>${movie.producer}</td>
-	                                                            <td>${movie.genre}</td>
+	                                                            <td>${movie.moTa}</td>
+	                                                            <td>${movie.nhaSanXuat}</td>
+	                                                            <td>${movie.theLoai}</td>
 	                                                        </tr>
 	                                                        </c:forEach>
 	                                                    </tbody>

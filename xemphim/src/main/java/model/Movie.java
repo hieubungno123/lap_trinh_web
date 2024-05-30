@@ -1,4 +1,4 @@
-package xemphim.model;
+package model;
 
 public class Movie {
 	private String maPhim;
@@ -55,7 +55,6 @@ public class Movie {
 	}
 	public Movie(String maPhim, String tenPhim, String thoiLuong, String linkPhim, String moTa, String nhaSanXuat,
 			String theLoai) {
-		super();
 		this.maPhim = maPhim;
 		this.tenPhim = tenPhim;
 		this.thoiLuong = thoiLuong;
