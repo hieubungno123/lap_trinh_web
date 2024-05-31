@@ -61,9 +61,9 @@
 		    <label for="partheloai">Thể loại</label>
 		    <select class="form-control" id="partheloai" name="partheloai">
 		        <option value="">Chọn thể loại</option>
-		        <option value="theloai1">PhimBo</option>
-		        <option value="theloai2">PhimLe</option>
-		        <option value="theloai3">PhimChieuRap</option>
+		        <option value="PhimBo">PhimBo</option>
+		        <option value="PhimLe">PhimLe</option>
+		        <option value="PhimChieuRap">PhimChieuRap</option>
 		    </select>
 		</div>
 

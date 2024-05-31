@@ -42,6 +42,35 @@ public class MovieDao {
 		
 		return list;
 	}
+	
+	public List<Movie> findAllByTheLoai(String theLoai) {
+		String sql = " SELECT * FROM app_movie.movies WHERE theLoai ='"+ theLoai +"';";
+		List<Movie> list = new ArrayList<>();
+		try {
+			connection = new DBContext().getConnection();
+			statement = connection.prepareStatement(sql);
+			resultSet = statement.executeQuery(); // Bảng kết quả sẽ hiện ra trong DB
+			while (resultSet.next()) {
+				list.add(new Movie(
+						resultSet.getString(1),  // maPhim
+						resultSet.getString(2),  // tenPhim
+						resultSet.getString(3),     // totalMinutes
+						resultSet.getString(4),  // linkPhim
+						resultSet.getString(5),  // descriptionMovie
+						resultSet.getString(6),  // producer
+						resultSet.getString(7)  // genre
+
+						));
+			}
+			connection.close();
+			statement.close();
+			resultSet.close();
+		}catch (Exception e) {
+			return null;
+		}
+		
+		return list;
+	}
 
 	public Movie addNewMovie(
 			 String maPhim,
@@ -164,6 +193,8 @@ public class MovieDao {
 		}
 		return movie;
 	}
+	
+	
 	
 	
 }
