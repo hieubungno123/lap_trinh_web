@@ -15,7 +15,7 @@ import model.Movie;
 /**
  * Servlet implementation class MovieController
  */
-@WebServlet("/MovieController")
+@WebServlet("/Movie")
 public class MovieController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -31,25 +31,26 @@ public class MovieController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String theLoai1 = "PhimBo";
-		String theLoai2 = "PhimLe";
-		String theLoai3 = "PhimChieuRap";
-		
-		MovieDao dao = new MovieDao();
-		List<Movie> list1 = dao.findAllByTheLoai(theLoai2);
-		List<Movie> list2 = dao.findAllByTheLoai(theLoai3);
-		List<Movie> list3 = dao.findAllByTheLoai(theLoai1);
-
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+//		String maPhim=request.getParameter("maPhim");
+//
+//		MovieDao dao = new MovieDao();
+//		Movie movie = dao.findByMaPhim(maPhim);
+//		
+//		request.setAttribute("movies", movie);
+//		request.getRequestDispatcher("xemphim.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String maPhim=request.getParameter("maPhim");
+
+		MovieDao dao = new MovieDao();
+		Movie movie = dao.findByMaPhim(maPhim);
+		
+		request.setAttribute("movies", movie);
+		request.getRequestDispatcher("xemphim.jsp").forward(request, response);
 	}
 
 }

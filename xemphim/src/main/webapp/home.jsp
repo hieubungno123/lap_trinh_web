@@ -20,21 +20,20 @@
         <nav class="navbar navbar-expand-lg  bg-secondary ">
             <div class="container-fluid text-center  ">
 
-              <a class="navbar-brand text-light" href="#"> <i class="fa-solid fa-film"></i> Navbar</a>
+              <a class="navbar-brand text-light" href="index.jsp">Trang chu</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 
-                <form class="d-flex" role="search">
-                  <input class="px-2 search" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn0 btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <form class="d-flex" role="search" method="post" action='Movie'>
+           			 <input type="text" class="form-control px-2 search" id="maPhim" name='maPhim' value=''>
+                  <button type="submit" class="btn0 btn-outline-success" name="action" value="create"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
-                <div class=" login m-auto">
+                 <div class=" login m-auto">
                     <a class="login-sub" href="index2.jsp">Admin</a>
-                    <!-- <a class="login-sub" href="">Dang ky</a> -->
-                </div>
-
+                    <a class="login-sub" href="">Dang ky</a>
+                </div> 
               </div>
               
             </div>
@@ -89,6 +88,12 @@
 	                                </div>
 	                                <h3>${movie1.tenPhim}</h3>
 	                                <span> ${movie1.thoiLuong} min | ${movie1.theLoai}</span>
+	                                <form method="post" action='Movie'>
+	                                	<select class="form-control" id="maPhim" name="maPhim">
+									        <option value="${movie1.maPhim}">${movie1.maPhim}</option>
+									    </select>
+									    <button type="submit" class="btn btn-danger" name="action" value="xemphim">XemPhim</button>
+	                                </form>
 	                            </div>
 					        </c:forEach> 
 
@@ -121,6 +126,12 @@
 	                                </div>
 	                                <h3>${movie2.tenPhim}</h3>
 	                                <span> ${movie2.thoiLuong} min | ${movie2.theLoai}</span>
+	                                <form method="post" action='Movie'>
+	                                	<select class="form-control" id="maPhim" name="maPhim">
+									        <option value="${movie2.maPhim}">${movie2.maPhim}</option>
+									    </select>
+									    <button type="submit" class="btn btn-danger" name="action" value="xemphim">XemPhim</button>
+	                                </form>
 	                            </div>
 					        </c:forEach> 
 					        
@@ -153,6 +164,12 @@
 	                                </div>
 	                                <h3>${movie3.tenPhim}</h3>
 	                                <span> ${movie3.thoiLuong} min | ${movie3.theLoai}</span>
+	                            	<form method="post" action='Movie'>
+	                                	<select class="form-control" id="maPhim" name="maPhim">
+									        <option value="${movie3.maPhim}">${movie3.maPhim}</option>
+									    </select>
+									    <button type="submit" class="btn btn-danger" name="action" value="xemphim">XemPhim</button>
+	                                </form>
 	                            </div>
 					        </c:forEach> 
 					        

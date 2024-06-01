@@ -36,6 +36,7 @@ public class AdminController extends HttpServlet {
 		List<Movie> list = dao.getAllStudent();
 
 		request.setAttribute("movies", list);
+		
 		request.getRequestDispatcher("adminHome.jsp").forward(request, response); 
 	}
 

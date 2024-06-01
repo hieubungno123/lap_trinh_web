@@ -57,7 +57,7 @@
     <fullyQualifiedTypeName name="xemphim.context.DBContext"/>
     <fullyQualifiedTypeName name="xemphim.dao.MovieDao"/>
     <fullyQualifiedTypeName name="xemphim.model.Movie"/>
+    <fullyQualifiedTypeName name="dao.MovieDao"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="model.Movie"/>
-    <fullyQualifiedTypeName name="dao.MovieDao"/>
 </qualifiedTypeNameHistroy>

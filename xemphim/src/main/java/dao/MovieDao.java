@@ -154,6 +154,7 @@ public class MovieDao {
 		Movie movie = null;
 		try {
 			movie = findByMaPhim(maPhim);
+			
 			connection = new DBContext().getConnection();
 			statement = connection.prepareStatement(sql);
 			statement.executeUpdate();

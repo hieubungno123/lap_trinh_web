@@ -120,15 +120,15 @@
 	                                                    </thead>
 	                                                    <tbody>
 	                                                        <c:forEach var="movie" items="${movies}">
-	                                                        <tr>
-	                                                            <td>${movie.maPhim}</td>
-	                                                            <td>${movie.tenPhim}</td>
-	                                                            <td>${movie.thoiLuong}</td>
-	                                                            <td>${movie.linkPhim}</td>
-	                                                            <td>${movie.moTa}</td>
-	                                                            <td>${movie.nhaSanXuat}</td>
-	                                                            <td>${movie.theLoai}</td>
-	                                                        </tr>
+		                                                        <tr>
+		                                                            <td>${movie.maPhim}</td>
+		                                                            <td>${movie.tenPhim}</td>
+		                                                            <td>${movie.thoiLuong}</td>
+		                                                            <td>${movie.linkPhim}</td>
+		                                                            <td>${movie.moTa}</td>
+		                                                            <td>${movie.nhaSanXuat}</td>
+		                                                            <td>${movie.theLoai}</td>
+		                                                        </tr>
 	                                                        </c:forEach>
 	                                                    </tbody>
 	                                                </table>

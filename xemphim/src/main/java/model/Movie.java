@@ -53,6 +53,7 @@ public class Movie {
 	public void setThoiLuong(String thoiLuong) {
 		this.thoiLuong = thoiLuong;
 	}
+	
 	public Movie(String maPhim, String tenPhim, String thoiLuong, String linkPhim, String moTa, String nhaSanXuat,
 			String theLoai) {
 		this.maPhim = maPhim;
@@ -63,6 +64,7 @@ public class Movie {
 		this.nhaSanXuat = nhaSanXuat;
 		this.theLoai = theLoai;
 	}
+	
 	public Movie() {
 	}
 	
